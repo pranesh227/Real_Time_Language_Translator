@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!--icons-->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <title>LinguaPro | Advanced Translator</title>
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo">
+                    <ion-icon name="language-outline"></ion-icon>
+                    <h1>LinguaPro</h1>
+                </div>
+                <nav class="app-nav">
+                    <button class="nav-btn active" data-section="translator">
+                        <ion-icon name="swap-horizontal-outline"></ion-icon>
+                        <span>Translator</span>
+                    </button>
+                    <button class="nav-btn" data-section="history">
+                        <ion-icon name="time-outline"></ion-icon>
+                        <span>History</span>
+                    </button>
+                    <button class="nav-btn" data-section="saved">
+                        <ion-icon name="bookmark-outline"></ion-icon>
+                        <span>Saved</span>
+                    </button>
+                    <button class="nav-btn" data-section="settings">
+                        <ion-icon name="settings-outline"></ion-icon>
+                        <span>Settings</span>
+                    </button>
+                </nav>
+                <div class="user-actions">
+                    <button class="btn-premium">
+                        <ion-icon name="diamond-outline"></ion-icon>
+                        <span>Go Premium</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="app-main">
+            <!-- Translator Section -->
+            <section class="content-section active" id="translator">
+                <div class="translator-container">
+                    <div class="input-container">
+                        <div class="input-header">
+                            <div class="language-selector">
+                                <select class="lang-select from-lang"></select>
+                                <button class="btn-voice" title="Voice Input">
+                                    <ion-icon name="mic-outline"></ion-icon>
+                                </button>
+                            </div>
+                            <div class="input-actions">
+                                <button class="btn-action" title="Clear">
+                                    <ion-icon name="trash-outline"></ion-icon>
+                                </button>
+                                <button class="btn-action" title="Copy">
+                                    <ion-icon name="copy-outline"></ion-icon>
+                                </button>
+                                <button class="btn-action" title="Speak">
+                                    <ion-icon name="volume-high-outline"></ion-icon>
+                                </button>
+                            </div>
+                        </div>
+                        <textarea class="text-input from-text" placeholder="Enter text or speak..."></textarea>
+                        <div class="character-count">0/5000</div>
+                    </div>
+
+                    <div class="controls">
+                        <button class="btn-swap" title="Swap Languages">
+                            <ion-icon name="swap-vertical"></ion-icon>
+                        </button>
+                        <button class="btn-translate">
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                            <span>Translate</span>
+                        </button>
+                    </div>
+
+                    <div class="output-container">
+                        <div class="output-header">
+                            <div class="language-selector">
+                                <select class="lang-select to-lang"></select>
+                            </div>
+                            <div class="output-actions">
+                                <button class="btn-action" title="Copy">
+                                    <ion-icon name="copy-outline"></ion-icon>
+                                </button>
+                                <button class="btn-action" title="Speak">
+                                    <ion-icon name="volume-high-outline"></ion-icon>
+                                </button>
+                                <button class="btn-action" title="Save">
+                                    <ion-icon name="bookmark-outline"></ion-icon>
+                                </button>
+                            </div>
+                        </div>
+                        <textarea readonly class="text-output to-text" placeholder="Translation will appear here..."></textarea>
+                        <div class="translation-info">
+                            <div class="translation-time">Translation time: --</div>
+                            <div class="translation-source">Powered by MyMemory API</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="voice-indicator hidden">
+                    <div class="pulse-ring"></div>
+                    <div class="pulse-ring delay-1"></div>
+                    <div class="pulse-ring delay-2"></div>
+                    <ion-icon name="mic" class="mic-icon"></ion-icon>
+                    <p class="listening-text">Listening... Speak now</p>
+                    <button class="btn-cancel-voice">Cancel</button>
+                </div>
+            </section>
+
+            <!-- History Section -->
+            <section class="content-section" id="history">
+                <div class="section-header">
+                    <h2>Translation History</h2>
+                    <button class="btn-clear-history">
+                        <ion-icon name="trash-outline"></ion-icon>
+                        <span>Clear All</span>
+                    </button>
+                </div>
+                <div class="history-list">
+                    <!-- History items will be inserted here -->
+                </div>
+            </section>
+
+            <!-- Saved Section -->
+            <section class="content-section" id="saved">
+                <div class="section-header">
+                    <h2>Saved Translations</h2>
+                    <div class="search-box">
+                        <ion-icon name="search-outline"></ion-icon>
+                        <input type="text" placeholder="Search saved translations...">
+                    </div>
+                </div>
+                <div class="saved-list">
+                    <!-- Saved items will be inserted here -->
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section class="content-section" id="settings">
+                <div class="section-header">
+                    <h2>Settings</h2>
+                </div>
+                <div class="settings-content">
+                    <div class="setting-card">
+                        <h3>Appearance</h3>
+                        <div class="theme-options">
+                            <button class="theme-option active" data-theme="light">
+                                <div class="theme-preview light"></div>
+                                <span>Light</span>
+                            </button>
+                            <button class="theme-option" data-theme="dark">
+                                <div class="theme-preview dark"></div>
+                                <span>Dark</span>
+                            </button>
+                            <button class="theme-option" data-theme="system">
+                                <div class="theme-preview system"></div>
+                                <span>System</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="setting-card">
+                        <h3>Translation Preferences</h3>
+                        <div class="setting-item">
+                            <label for="auto-translate">Auto-translate on input</label>
+                            <label class="switch">
+                                <input type="checkbox" id="auto-translate" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label for="detect-language">Auto-detect language</label>
+                            <label class="switch">
+                                <input type="checkbox" id="detect-language" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="setting-card">
+                        <h3>Voice Settings</h3>
+                        <div class="setting-item">
+                            <label for="voice-input">Enable voice input</label>
+                            <label class="switch">
+                                <input type="checkbox" id="voice-input" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label for="voice-output">Enable voice output</label>
+                            <label class="switch">
+                                <input type="checkbox" id="voice-output" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="toast-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
